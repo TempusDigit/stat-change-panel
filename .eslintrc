@@ -1,0 +1,7 @@
+{
+  "extends": "./.config/.eslintrc",
+  "rules": {
+    "semi": [2, "always"],
+    "@typescript-eslint/array-type": 0
+  }
+}
