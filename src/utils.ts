@@ -1,9 +1,9 @@
-import { DataFrame, DisplayValue, FieldType, GrafanaTheme2 } from "@grafana/data";
-import { CURRENT_FIELD, PREVIOUS_FIELD, SERIE, VALUE_INDEX } from "consts";
-import { StatChangeOptions } from "models.gen";
+import { DataFrame, DisplayValue, FieldType, GrafanaTheme2 } from '@grafana/data';
+import { CURRENT_FIELD, PREVIOUS_FIELD, SERIE, VALUE_INDEX } from 'consts';
+import { StatChangeOptions } from 'models.gen';
 
 function validateSeries(series: DataFrame[]): void {
-    let errorMessage = "";
+    let errorMessage = '';
     if (series.length === 0) {
         errorMessage = 'No data';
     }
@@ -52,12 +52,12 @@ export function getDisplayValue(series: DataFrame[], options: StatChangeOptions,
     validateSeries(series);
 
     const currentValue: number = series[SERIE].fields[CURRENT_FIELD].values.get(VALUE_INDEX);
-    const color = getColor(series, options, theme);
 
     return {
-      numeric: currentValue,
-      color,
-      text: currentValue.toString(),
+        text: currentValue.toString(),
+        numeric: currentValue,
+        color: getColor(series, options, theme),
+        title: series[SERIE].fields[CURRENT_FIELD].name,
     };
 }
 

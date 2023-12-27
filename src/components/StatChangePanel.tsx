@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 import { PanelProps } from '@grafana/data';
 import { StatChangeOptions } from 'models.gen';
-import { BigValue, BigValueColorMode, useTheme2 } from '@grafana/ui';
+import { BigValue, BigValueColorMode, BigValueTextMode, useTheme2 } from '@grafana/ui';
 import { getDisplayValue } from 'utils';
 import { PanelDataErrorView } from '@grafana/runtime';
 import { Info } from 'types';
 
-interface Props extends PanelProps<StatChangeOptions> {}
+interface Props extends PanelProps<StatChangeOptions> { }
 
 export const SimplePanel: React.FC<Props> = ({ data, fieldConfig, height, id, options, width }) => {
   const theme = useTheme2();
@@ -30,6 +30,7 @@ export const SimplePanel: React.FC<Props> = ({ data, fieldConfig, height, id, op
   return <BigValue
     value={info.displayValue}
     colorMode={BigValueColorMode.Value}
+    textMode={BigValueTextMode.ValueAndName}
     width={width}
     height={height}
     theme={theme}

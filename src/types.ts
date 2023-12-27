@@ -1,4 +1,4 @@
-import { DisplayValue } from "@grafana/data"
+import { DisplayValue } from '@grafana/data';
 
 export interface Info {
     displayValue?: DisplayValue;
