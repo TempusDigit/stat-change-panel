@@ -1,40 +1,20 @@
 import { PanelPlugin } from '@grafana/data';
-import { SimpleOptions } from './types';
-import { SimplePanel } from './components/SimplePanel';
+import { StatChangeOptions, defualtStatChangeOptions } from 'models.gen';
+import { SimplePanel } from './components/StatChangePanel';
 
-export const plugin = new PanelPlugin<SimpleOptions>(SimplePanel).setPanelOptions((builder) => {
+export const plugin = new PanelPlugin<StatChangeOptions>(SimplePanel).setPanelOptions((builder) => {
   return builder
-    .addTextInput({
-      path: 'text',
-      name: 'Simple text option',
-      description: 'Description of panel option',
-      defaultValue: 'Default value of text input option',
-    })
-    .addBooleanSwitch({
-      path: 'showSeriesCount',
-      name: 'Show series counter',
-      defaultValue: false,
-    })
-    .addRadio({
-      path: 'seriesCountSize',
-      defaultValue: 'sm',
-      name: 'Series counter size',
-      settings: {
-        options: [
-          {
-            value: 'sm',
-            label: 'Small',
-          },
-          {
-            value: 'md',
-            label: 'Medium',
-          },
-          {
-            value: 'lg',
-            label: 'Large',
-          },
-        ],
-      },
-      showIf: (config) => config.showSeriesCount,
+    .addColorPicker({
+      path: 'none',
+      name: 'No change color',
+      defaultValue: defualtStatChangeOptions.none,
+    }).addColorPicker({
+      path: 'positive',
+      name: 'Positive change color',
+      defaultValue: defualtStatChangeOptions.positive,
+    }).addColorPicker({
+      path: 'negative',
+      name: 'Negative change color',
+      defaultValue: defualtStatChangeOptions.negative,
     });
 });

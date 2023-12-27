@@ -1,7 +1,6 @@
-type SeriesSize = 'sm' | 'md' | 'lg';
+import { DisplayValue } from "@grafana/data"
 
-export interface SimpleOptions {
-  text: string;
-  showSeriesCount: boolean;
-  seriesCountSize: SeriesSize;
-}
+export interface Info {
+    displayValue?: DisplayValue;
+    warning?: string;
+};
