@@ -1,11 +1,11 @@
 {
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
   "type": "panel",
-  "name": "Stat Change Panel",
+  "name": "Stat change",
   "id": "stat-change-panel",
   "info": {
     "keywords": ["panel"],
-    "description": "",
+    "description": "Stat change panel plugin",
     "author": {
       "name": "Singleton labs"
     },

@@ -12,9 +12,9 @@ export const SimplePanel: React.FC<Props> = ({ data, fieldConfig, height, id, op
   const theme = useTheme2();
   const info: Info = useMemo(() => {
     try {
-      return { displayValue: getDisplayValue(data.series, options, theme) };
+      return { data: getDisplayValue(data.series, options, theme) };
     } catch (e: any) {
-      return { warning: `${e.message}` };
+      return { warning: e.message };
     }
   }, [data.series, options, theme]);
 
@@ -28,7 +28,7 @@ export const SimplePanel: React.FC<Props> = ({ data, fieldConfig, height, id, op
   }
 
   return <BigValue
-    value={info.displayValue}
+    value={info.data}
     colorMode={BigValueColorMode.Value}
     textMode={BigValueTextMode.ValueAndName}
     width={width}

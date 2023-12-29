@@ -1,6 +1,6 @@
 import { DisplayValue } from '@grafana/data';
 
 export interface Info {
-    displayValue?: DisplayValue;
+    data?: DisplayValue;
     warning?: string;
 };
