@@ -21,7 +21,7 @@ export const SimplePanel: React.FC<Props> = ({ data, fieldConfig, height, id, op
   }
 
   return <BigValue
-    value={info.data}
+    value={info.data?.displayValue}
     colorMode={BigValueColorMode.Value}
     textMode={BigValueTextMode.ValueAndName}
     width={width}
