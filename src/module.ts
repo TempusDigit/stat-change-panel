@@ -1,5 +1,5 @@
 import { PanelPlugin } from '@grafana/data';
-import { StatChangeOptions, defualtStatChangeOptions } from 'models.gen';
+import { StatChangeOptions, defaultStatChangeConfig } from 'models.gen';
 import { SimplePanel } from './components/StatChangePanel';
 
 export const plugin = new PanelPlugin<StatChangeOptions>(SimplePanel).setPanelOptions((builder) => {
@@ -7,14 +7,14 @@ export const plugin = new PanelPlugin<StatChangeOptions>(SimplePanel).setPanelOp
     .addColorPicker({
       path: 'none',
       name: 'No change color',
-      defaultValue: defualtStatChangeOptions.none,
+      defaultValue: defaultStatChangeConfig.none,
     }).addColorPicker({
       path: 'positive',
       name: 'Positive change color',
-      defaultValue: defualtStatChangeOptions.positive,
+      defaultValue: defaultStatChangeConfig.positive,
     }).addColorPicker({
       path: 'negative',
       name: 'Negative change color',
-      defaultValue: defualtStatChangeOptions.negative,
+      defaultValue: defaultStatChangeConfig.negative,
     });
 });

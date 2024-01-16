@@ -4,7 +4,7 @@ export interface StatChangeOptions {
     negative: string;
 }
 
-export const defualtStatChangeOptions: StatChangeOptions = {
+export const defaultStatChangeConfig: StatChangeOptions = {
     none: 'gray',
     positive: 'green',
     negative: 'red',
